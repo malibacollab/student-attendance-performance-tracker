@@ -85,6 +85,17 @@ student_tracker_app/
 5.  **Database Initialization:**
     The `init.sql` script located in the `./database` directory is automatically executed when the `db` (MySQL) container starts for the first time. This script creates the `student_tracker` database and defines the schema for all necessary tables.
 
+6.  **Populating with Sample Data (Optional):**
+    A script `backend/seed_db.py` is provided to populate the database with sample data. This includes sample teachers, students, subjects, enrollments, assignments, grades, and attendance records, which can be useful for initial setup and testing the application's features.
+
+    To run the seed script after the application containers are up and running (i.e., after `docker-compose up -d`), execute the following command from your project root directory:
+    ```bash
+    docker-compose exec backend python seed_db.py
+    ```
+    The script will output progress messages to the console.
+
+    **Note:** Running the seed script multiple times will first clear all existing data from the tables (students, subjects, enrollments, etc.) and then re-populate them with new sample data.
+
 ## Stopping the Application
 
 To stop the application and all its services:
