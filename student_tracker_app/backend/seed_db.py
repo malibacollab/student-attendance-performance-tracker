@@ -183,12 +183,12 @@ def seed_data():
                     if random.random() < GRADE_SUBMISSION_PERCENTAGE: # 85% chance to submit grade
                         # Generate plausible marks
                         if random.random() < 0.1: # 10% chance of a lower score
-                            marks = round(random.uniform(0.3 * assignment.max_marks, 0.6 * assignment.max_marks), 2)
+                            marks = round(random.uniform(0.3 * float(assignment.max_marks), 0.6 * float(assignment.max_marks)), 2)
                         else: # 90% chance of a good score
-                            marks = round(random.uniform(0.65 * assignment.max_marks, 0.98 * assignment.max_marks), 2)
+                            marks = round(random.uniform(0.65 * float(assignment.max_marks), 0.98 * float(assignment.max_marks)), 2)
                         
                         # Ensure marks do not exceed max_marks (shouldn't happen with logic above, but good check)
-                        marks = min(marks, assignment.max_marks)
+                        marks = min(marks, float(assignment.max_marks))
 
                         grade = Grade(
                             enrollment_id=enrollment.enrollment_id,
