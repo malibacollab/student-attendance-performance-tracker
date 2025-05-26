@@ -1,0 +1,54 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa; /* Light grey background for a softer look */
+    padding-top: 56px; /* Adjust if navbar height changes, for fixed-top navbar */
+}
+
+.container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #ffffff; /* White background for content area */
+    border-radius: 8px; /* Slightly rounded corners for the main content block */
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+    margin-top: 20px; /* Added margin-top to separate from a fixed navbar */
+    margin-bottom: 20px;
+}
+
+/* Enhance navbar appearance slightly if not using fixed-top */
+.navbar {
+    margin-bottom: 0; /* Remove default margin if .container handles top margin */
+}
+
+/* Style for card elements to have a consistent feel */
+.card {
+    margin-bottom: 20px; /* Ensure spacing between cards */
+    border: 1px solid #e9ecef; /* Softer border for cards */
+}
+
+.card-title {
+    color: #007bff; /* Bootstrap primary color for titles */
+}
+
+/* Consistent button margins for forms within modals or cards */
+.modal-footer .btn, .card-body .btn {
+    margin-left: 5px;
+}
+.modal-footer .btn:first-child, .card-body .btn:first-child {
+    margin-left: 0;
+}
+
+/* Alert placeholder specific styling */
+#alertPlaceholder .alert {
+    margin-top: 15px;
+}
+
+/* Table hover effect for better readability */
+.table-hover tbody tr:hover {
+    background-color: #e9ecef;
+}
+
+/* Custom styles for required field indicators if needed */
+label.required::after {
+    content: " *";
+    color: red;
+}

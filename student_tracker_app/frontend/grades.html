@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grades | Student Tracker</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS (optional, if you create a css/style.css) -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+        <a class="navbar-brand" href="index.html">Student Tracker</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="students.html">Students</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="subjects.html">Subjects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="teachers.html">Teachers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="enrollments.html">Enrollments</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="attendance.html">Attendance</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="grades.html">Grades <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="reports.html">Reports</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h1>Manage Grades</h1>
+        </div>
+
+        <div id="alertPlaceholder"></div>
+
+        <!-- Enrollment Selector -->
+        <div class="form-group">
+            <label for="enrollmentSelectGrades">Select Enrollment (Student - Subject):</label>
+            <select id="enrollmentSelectGrades" class="form-control mb-3">
+                <option value="">Loading Enrollments...</option>
+            </select>
+        </div>
+
+        <!-- Assignment Selector (Initially Hidden/Disabled) -->
+        <div class="form-group" id="assignmentSelectorContainer" style="display: none;">
+            <label for="assignmentSelectGrades">Select Assignment:</label>
+            <select id="assignmentSelectGrades" class="form-control mb-3" disabled>
+                <option value="">Select an Assignment...</option>
+            </select>
+        </div>
+
+        <!-- Grade Input Form (Initially Hidden) -->
+        <div id="gradeInputFormContainer" style="display: none;">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Submit Grade</h5>
+                    <p><strong>Student:</strong> <span id="selectedStudentDisplay">N/A</span></p>
+                    <p><strong>Subject:</strong> <span id="selectedSubjectDisplay">N/A</span></p>
+                    <p><strong>Assignment:</strong> <span id="selectedAssignmentDisplay">N/A</span></p>
+                    <p><strong>Max Marks:</strong> <span id="maxMarksDisplay">N/A</span></p>
+                    
+                    <form id="gradeInputForm">
+                        <input type="hidden" id="currentEnrollmentIdGrades">
+                        <input type="hidden" id="currentAssignmentIdGrades">
+                        <div class="form-group">
+                            <label for="marksObtained">Marks Obtained</label>
+                            <input type="number" id="marksObtained" class="form-control" required step="0.01">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit Grade</button>
+                    </form>
+                    <div id="currentGradeDisplay" class="mt-3">
+                        <!-- Existing grade will be shown here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery, Popper.js, and Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+    <!-- Page-specific JS -->
+    <script src="js/grades.js"></script> 
+</body>
+</html>

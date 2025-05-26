@@ -1,3 +1,4 @@
+import os # Added
 from flask import Flask, request, jsonify
 from .models import db, Student, Subject, Teacher, Enrollment, Attendance, Assignment, Grade # Assuming models.py is in the same directory
 from sqlalchemy.exc import IntegrityError
@@ -6,8 +7,14 @@ from datetime import datetime
 from decimal import Decimal
 
 app = Flask(__name__)
-# Replace with your actual database credentials and host
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://user:password@host/student_tracker'
+
+# Database Configuration using Environment Variables
+DB_HOST = os.environ.get('MYSQL_HOST', 'localhost')
+DB_USER = os.environ.get('MYSQL_USER', 'root') 
+DB_PASSWORD = os.environ.get('MYSQL_PASSWORD', '') # Default to empty password for local root
+DB_NAME = os.environ.get('MYSQL_DATABASE', 'student_tracker')
+
+app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql+mysqlconnector://{DB_USER}:{DB_PASSWORD}@{DB_HOST}/{DB_NAME}'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False # silence the deprecation warning
 
 db.init_app(app)
