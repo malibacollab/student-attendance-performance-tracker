@@ -249,6 +249,19 @@ def create_enrollment():
         db.session.rollback()
         return jsonify({'message': str(e)}), 500
 
+@app.route('/enrollments', methods=['GET'])
+def get_all_enrollments():
+    try:
+        enrollments = Enrollment.query.all()
+        enrollments_list = [enrollment.to_dict() for enrollment in enrollments]
+        return jsonify(enrollments_list), 200
+    except Exception as e:
+        # Log the exception e for debugging
+        # For now, just printing to stderr, a proper logger would be better
+        import sys
+        print(f"Error in get_all_enrollments: {e}", file=sys.stderr)
+        return jsonify({"error": "Failed to retrieve enrollments", "message": str(e)}), 500
+
 @app.route('/students/<int:student_id>/enrollments', methods=['GET'])
 def get_student_enrollments(student_id):
     student = Student.query.get_or_404(student_id)
