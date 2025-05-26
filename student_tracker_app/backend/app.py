@@ -1,6 +1,6 @@
 import os # Added
 from flask import Flask, request, jsonify
-from .models import db, Student, Subject, Teacher, Enrollment, Attendance, Assignment, Grade # Assuming models.py is in the same directory
+from models import db, Student, Subject, Teacher, Enrollment, Attendance, Assignment, Grade
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy import func, case # Added for reporting
 from datetime import datetime
